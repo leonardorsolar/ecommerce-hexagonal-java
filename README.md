@@ -41,6 +41,8 @@ PostgreSQL Driver SQL (banco de dados na nuven) A JDBC and R2DBC driver that all
 
 cliquem em Generate Project
 
+![diagrama](image/spring.png)
+
 ## arquivo de incialização:
 
 abra a pasta do projeto no vscode para baixar as dependências
@@ -60,3 +62,28 @@ cometar as dependencias que não utilizaremos agora:jpa e postgresql
 Caso não comnete dará um erro posi não configuramos ainda o acesso ao banco de dados
 
 ## Estruturas da pastas
+
+A estrutura de pastas/grupos do projeto assume a seguinte forma:
+
+    ├── aplication
+    ├── domain
+    └── infrastructure
+
+## Arquivo de configurações: application.properties
+
+src/main/resources/application.properties
+opicional: configurações para mudar o local host:
+
+Arquivo resources:
+
+application.properties:
+spring.profiles.active = dev
+
+application-dev.properties:
+server.port = 9090
+
+## Compilação
+
+rodar o projeto para teste
+
+run http://localhost:8080
