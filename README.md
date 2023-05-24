@@ -82,6 +82,28 @@ spring.profiles.active = dev
 application-dev.properties:
 server.port = 9090
 
+## BANCO DE DADOS: configurando o postgres na aplicação
+
+Realizar a configuração para conexão
+
+Configuraçẽos do banco de dados de teste: application-test.properties
+Configurando o MySQL em projetos Spring Boot
+
+Após efetuar o download das dependências, vamos configurar as propriedades do PstegresSql e do JPA no projeto.
+
+// Criar a conexão com banco de dados PstegresSql host: "localhost", user: "root", password: "root", database: "db-ecommerce-java",
+application.properties :
+
+Para isso edite o arquivo de configuração application.properties e adicione o seguinte conteúdo:
+
+    spring.datasource.url = jdbc:postgresql://localhost:5432/db-ecommerce-java
+    spring.datasource.username = root
+    spring.datasource.password = root
+
+    spring.jpa.hibernate.ddl-auto = update
+    spring.jpa.sql-show = true
+    spring.jpa.database-platform = org.hibernate.dialect.PostgreSQLDialect
+
 ## Compilação
 
 rodar o projeto para teste
