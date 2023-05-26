@@ -10,6 +10,11 @@ Criação do projeto Produtc API com java, spring boot e PostgresSQl
 6. Criação do application
 7. Criação da infrastructre
 
+### Importância dos testes e do desenvolviment oriantado a testes:
+
+Garantir que essa aplicação continuará funcionando mesmo com mudanças futuras no código.
+como garantir que a mudança de um local não irá impactar no restante da aplicação
+
 ![diagrama](image/hexagonal.png)
 
 # GitHub
@@ -189,6 +194,88 @@ Isso significa que um objeto UserType só pode ser um dos dois tipos: administra
 Essa enumeração pode ser usada, por exemplo, para definir o tipo de um usuário em um sistema de autenticação. Você poderia ter uma classe User com um atributo do tipo UserType, permitindo que você defina se um usuário é um administrador ou um usuário comum.
 
 ## Camada Domain: classe User
+
+Iremos inicar pelo teste para criamos uma classe:
+
+instalr no vscode a extensão: Test Runner for Java
+clcar no icone becker e habilitar
+
+Vericamos no arquivo pom.xml que já temos a dependência default instalada:
+
+        <dependency>
+    		<groupId>org.springframework.boot</groupId>
+    		<artifactId>spring-boot-starter-test</artifactId>
+    		<scope>test</scope>
+    	</dependency>
+
+### Test: classe User
+
+acessar
+src/test/java/br/com/aes/ecommercehexagonaljava
+cria uma nova classe: UserTest
+
+Para criar um teste para a classe User usando o Spring Boot no Java, você pode utilizar uma estrutura de teste como o JUnit. Abaixo está um exemplo de como criar um teste para a classe User:
+
+        @SpringBootTest
+        class UserTest {
+
+        @Test
+        public void testUserCreation() {
+            // Criação de um usuário de exemplo
+            User user = new User();
+            user.setId(1);
+            // user.setUsername("john.doe");
+
+            // Verificação dos valores definidos
+            Assertions.assertEquals(1, user.getId().intValue());
+
+        }
+
+        }
+
+
+    Par compilar: clicar no play ao lado da classe
+
+    ou
+    a extensão Test Runner for Java
+
+Completo
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+    public class UserTest {
+
+        @Test
+        public void testUserCreation() {
+            // Criação de um usuário de exemplo
+            User user = new User();
+            user.setId(1);
+            user.setUsername("john.doe");
+            user.setFirstName("John");
+            user.setLastName("Doe");
+            user.setEmail("john.doe@example.com");
+            user.setAddress("123 Main St");
+            user.setCellphone("555-1234");
+            user.setPassword("password");
+            user.setUserType(UserType.REGULAR);
+            user.setDateCreated(LocalDateTime.now());
+
+            // Verificação dos valores definidos
+            Assertions.assertEquals(1, user.getId());
+            Assertions.assertEquals("john.doe", user.getUsername());
+            Assertions.assertEquals("John", user.getFirstName());
+            Assertions.assertEquals("Doe", user.getLastName());
+            Assertions.assertEquals("john.doe@example.com", user.getEmail());
+            Assertions.assertEquals("123 Main St", user.getAddress());
+            Assertions.assertEquals("555-1234", user.getCellphone());
+            Assertions.assertEquals("password", user.getPassword());
+            Assertions.assertEquals(UserType.REGULAR, user.getUserType());
+            Assertions.assertNotNull(user.getDateCreated());
+        }
+    }
+
+     o método testUserCreation() cria uma instância de User com valores específicos e, em seguida, verifica se os valores foram definidos corretamente usando asserções do JUnit. Certifique-se de ter as dependências adequadas do JUnit configuradas em seu projeto para executar o teste.
 
 as anotações @Data, @AllArgsConstructor e @NoArgsConstructor do Lombok permitem que você crie uma classe User com getters, setters, construtores e outros métodos comuns sem precisar escrever todo o código manualmente. Isso ajuda a reduzir a quantidade de código boilerplate e simplifica a criação de classes de dados em Java.
 
