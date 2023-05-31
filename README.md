@@ -10,18 +10,19 @@ Criação do projeto Produtc API com java, spring boot e PostgresSQl
 6. Criação do application
 7. Criação da infrastructre
 
-### Importância dos testes e do desenvolviment oriantado a testes:
+### Importância dos testes e do desenvolvimento orientado a teste:
 
 Garantir que essa aplicação continuará funcionando mesmo com mudanças futuras no código.
-como garantir que a mudança de um local não irá impactar no restante da aplicação
+
+Como garantir que a mudança de um local não irá impactar no restante da aplicação
 
 ![diagrama](image/hexagonal.png)
 
 # GitHub
 
 New repository
+
 Repository name: /ecommerce-hexagonal-java
-create repositoy
 
     echo "# ecommerce-hexagonal-java" >> README.md
     git init
@@ -38,7 +39,9 @@ create repositoy
 Criando projeto java maven:
 criar nosso projeto baseado no Spring Boot a partir do template do spring Initializr.
 
-Baixe o código do Spring-Boot configurado Acesse https://start.spring.io/
+Baixe o código do Spring-Boot configurado
+
+Acesse https://start.spring.io/
 Maven
 Spring Boot estável
 group> br.com.aes
@@ -54,23 +57,26 @@ cliquem em Generate Project
 
 ![diagrama](image/spring.png)
 
-## arquivo de incialização:
+## Arquivo de Incialização:
 
-abra a pasta do projeto no vscode para baixar as dependências
+Abra a pasta do projeto no vscode para baixar as dependências
 
-vá até o arquivo: src/main/java/br/com/aes/simpledb/SimpleDbApplication.java
+Vá até o arquivo: src/main/java/br/com/aes/simpledb/SimpleDbApplication.java
 
-Com o projeto criado, vá no vscode e abra a pasta que acabamos de criar. O vscode irá tentar inicializar as extensões, e atualizar as dependências Maven suportar o projeto, então, aguarde até que o processo termine antes de continuar:
+Com o projeto criado, vá no vscode e abra a pasta que acabamos de criar. O vscode irá tentar inicializar as extensões, e atualizar as dependências Maven. Então, aguarde até que o processo termine antes de continuar:
 
-atualização no menu inferior do vscode
+-> Ver as atualizações no menu inferior do vscode
 
-as dependencias fica no arquivo pow.xml
-opicional: pode-se comnetar as dependenciasa seguir, pois não uasremos agora e toda a hora que o projeto iniciar vai configurra o acesso ao banco de dados.
+As dependências ficam no arquivo pow.xml
+opicional: pode-se comentar as dependências seguir, pois não usaremos agora. Toda a hora que o projeto iniciar vai configurra o acesso ao banco de dados.
 Spring Data JPA SQL (banco de dados)
 PostgreSQL Driver SQL
 
-cometar as dependencias que não utilizaremos agora:jpa e postgresql
-Caso não comnete dará um erro posi não configuramos ainda o acesso ao banco de dados
+Comentar as dependências que não utilizaremos agora:
+
+jpa e postgresql
+
+Caso não comente dará um erro pois não configuramos ainda o acesso ao banco de dados.
 
 ## Estruturas da pastas
 
@@ -83,30 +89,37 @@ A estrutura de pastas/grupos do projeto assume a seguinte forma:
 ## Arquivo de configurações: application.properties
 
 src/main/resources/application.properties
+
 opicional: configurações para mudar o local host:
 
 Arquivo resources:
 
 application.properties:
-spring.profiles.active = dev
+
+    spring.profiles.active = dev
 
 application-dev.properties:
-server.port = 9090
+
+    server.port = 9090
 
 ## BANCO DE DADOS: configurando o postgres na aplicação
 
 Realizar a configuração para conexão
 
-Configuraçẽos do banco de dados de teste: application-test.properties
+Configuraçẽos do banco de dados de teste:
+
+application-test.properties
+
 Configurando o MySQL em projetos Spring Boot
 
 Após efetuar o download das dependências, vamos configurar as propriedades do PostgresSql e do JPA no projeto.
 
 // Criar a conexão com banco de dados PstegresSql
-host: "localhost"
-user: "root"
-password: "root",
-database: "db-ecommerce-java"
+
+    host: "localhost"
+    user: "root"
+    password: "root",
+    database: "db-ecommerce-java"
 
 application.properties :
 
@@ -120,7 +133,7 @@ Para isso edite o arquivo de configuração application.properties e adicione o 
     spring.jpa.sql-show = true
     spring.jpa.database-platform = org.hibernate.dialect.PostgreSQLDialect
 
-## configurando o mapstruct e lombok
+## Configurando o mapstruct e lombok
 
         ...
         <properties>
@@ -165,7 +178,7 @@ Para isso edite o arquivo de configuração application.properties e adicione o 
 
 ## Compilação
 
-rodar o projeto para teste
+Rodar o projeto para teste
 
 run http://localhost:9090/
 
@@ -185,10 +198,12 @@ Criar uma classe de dominio para Product, User e enum UserType
 
 package br.com.aes.ecommercehexagonaljava.domain;
 
-public enum UserType {
-ADMIN, USER
-}
+    public enum UserType {
+    ADMIN, USER
+    }
+
 Esse código em Java define uma enumeração chamada UserType que representa os diferentes tipos de usuário em um sistema. Uma enumeração é um tipo de dado especial que permite definir um conjunto fixo de valores constantes.
+
 Isso significa que um objeto UserType só pode ser um dos dois tipos: administrador ou usuário comum.
 
 Essa enumeração pode ser usada, por exemplo, para definir o tipo de um usuário em um sistema de autenticação. Você poderia ter uma classe User com um atributo do tipo UserType, permitindo que você defina se um usuário é um administrador ou um usuário comum.
@@ -197,8 +212,10 @@ Essa enumeração pode ser usada, por exemplo, para definir o tipo de um usuári
 
 Iremos inicar pelo teste para criamos uma classe:
 
-instalr no vscode a extensão: Test Runner for Java
-clcar no icone becker e habilitar
+Instalar no vscode a extensão:
+
+Test Runner for Java
+clicar no icone becker e habilitar
 
 Vericamos no arquivo pom.xml que já temos a dependência default instalada:
 
@@ -210,11 +227,13 @@ Vericamos no arquivo pom.xml que já temos a dependência default instalada:
 
 ### Test: classe User
 
-acessar
+Acessar:
+
 src/test/java/br/com/aes/ecommercehexagonaljava
+
 cria uma nova classe: UserTest
 
-Para criar um teste para a classe User usando o Spring Boot no Java, você pode utilizar uma estrutura de teste como o JUnit. Abaixo está um exemplo de como criar um teste para a classe User:
+Para criar um teste para a **classe User** usando o Spring Boot no Java, você pode utilizar uma estrutura de teste como o JUnit. Abaixo está um exemplo de como criar um teste para a classe User:
 
         @SpringBootTest
         class UserTest {
@@ -239,7 +258,7 @@ Para criar um teste para a classe User usando o Spring Boot no Java, você pode 
     ou
     a extensão Test Runner for Java
 
-Completo
+Código da classe User:
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -304,7 +323,9 @@ Utiliza anotações do projeto Lombok para gerar automaticamente métodos comuns
 
 **@NoArgsConstructor:** Essa anotação gera um construtor sem argumentos. Ele cria um construtor vazio que não recebe nenhum parâmetro. Esse construtor pode ser útil em situações em que você precisa criar um objeto User sem fornecer nenhum valor inicial para os campos.
 
-como ficaria sem os anotations:
+Código completo da classe User sem os anotations:
+
+Como ficaria sem os anotations:
 
     public class User {
         private Integer id;

@@ -19,35 +19,35 @@
 
 // @Override
 // public Iterable<Product> getProducts() {
-// // TODO Auto-generated method stub
+// TODO Auto-generated method stub
 // throw new UnsupportedOperationException("Unimplemented method
 // 'getProducts'");
 // }
 
 // @Override
 // public Iterable<Product> getProductsByUser(User user) {
-// // TODO Auto-generated method stub
+// TODO Auto-generated method stub
 // throw new UnsupportedOperationException("Unimplemented method
 // 'getProductsByUser'");
 // }
 
 // @Override
 // public Product getProductById(Integer id) {
-// // TODO Auto-generated method stub
+// TODO Auto-generated method stub
 // throw new UnsupportedOperationException("Unimplemented method
 // 'getProductById'");
 // }
 
 // @Override
 // public Product saveProduct(Product product) {
-// // TODO Auto-generated method stub
+// TODO Auto-generated method stub
 // throw new UnsupportedOperationException("Unimplemented method
 // 'saveProduct'");
 // }
 
 // @Override
 // public void deleteProductById(Integer id) {
-// // TODO Auto-generated method stub
+// TODO Auto-generated method stub
 // throw new UnsupportedOperationException("Unimplemented method
 // 'deleteProductById'");
 // }

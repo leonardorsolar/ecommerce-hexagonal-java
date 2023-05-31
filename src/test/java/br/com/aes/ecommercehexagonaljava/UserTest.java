@@ -14,12 +14,22 @@ class UserTest {
     // Criação de um usuário de exemplo
     User user = new User();
     user.setId(1);
-    // user.setUsername("john.doe");
-
+    System.out.print(user);
     // Verificação dos valores definidos
     // Assertions.assertEquals(1, user.getId().intValue());
     Assertions.assertEquals(1, user.getId());
 
+  }
+
+  @Test
+  public void testUserReponse() {
+    // Criação de um usuário de exemplo
+    User user = new User();
+    user.setUsername("john.doe");
+    System.out.print(user);
+    // Verificação dos valores definidos
+    // Assertions.assertEquals(1, user.getId().intValue());
+    Assertions.assertEquals(1, user.getId());
   }
 
 }
